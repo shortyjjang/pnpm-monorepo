@@ -19,17 +19,32 @@ export interface AuthContextType {
   isLoading: boolean;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const initialUser: User = {
+  id: '',
+  name: '',
+  email: '',
+  role: 'customer',
+};
+
+const initialAuthContext: AuthContextType = {
+  user: initialUser,
+  setUser: () => {},
+  login: () => {},
+  logout: () => {},
+  isLoading: true,
+};
+
+const AuthContext = createContext<AuthContextType | undefined>(initialAuthContext);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User>(null);
+  const [user, setUser] = useState<User>(initialUser);
   const [isLoading, setIsLoading] = useState(true);
 
   // 마운트 시 쿠키에서 사용자 정보 확인
   useEffect(() => {
     const initAuth = () => {
       setIsLoading(true);
-      
+      console.log('initAuth');
       try {
         // 쿠키로부터 토큰과 사용자 정보 불러오기
         const token = getCookie('authToken');

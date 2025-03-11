@@ -2,14 +2,16 @@
 
 import { useAuth } from '@pnpm-monorepo/auth';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const { user, isLoading } = useAuth();
+  const router = useRouter();
   
   // 로그인 상태 확인
-  const isLoggedIn = !!user;
+  const isLoggedIn = user?.id;
   
-  if (isLoading) {
+  if (isLoading && !user) {
     return <div className="p-8 text-center">로딩 중...</div>;
   }
   
