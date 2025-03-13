@@ -1,5 +1,5 @@
 {
-  "name": "customer",
+  "name": "seller",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,10 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.1"
+    "next": "15.2.1",
+    "@pnpm-monorepo/auth": "workspace:*",
+    "@pnpm-monorepo/ui": "workspace:*",
+    "@pnpm-monorepo/utils": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5",

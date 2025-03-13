@@ -8,5 +8,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "pnpm": {
+    "overrides": {
+      "pnpm-monorepo": "link:../.."
+    }
+  },
+  "dependencies": {
+    "pnpm-monorepo": "link:../.."
+  }
 }
