@@ -1,10 +1,16 @@
 import React from 'react';
-import { Text, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Route from './src/Route';
+
+const queryClient = new QueryClient();
 
 export default function App(): React.JSX.Element {
   return (
-    <SafeAreaView>
-      <Text>Customer App</Text>
-    </SafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaView style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+        <Route />
+      </SafeAreaView>
+    </QueryClientProvider>
   );
 }

@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ios:customer": "pnpm --filter customer ios",
+    "android:customer": "pnpm --filter customer android",
+    "start:customer": "pnpm --filter customer start"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +15,13 @@
   "pnpm": {
     "overrides": {
       "pnpm-monorepo": "link:../.."
+    },
+    "packageExtensions": {
+      "react-native": {
+        "peerDependencies": {
+          "react": "*"
+        }
+      }
     }
   },
   "dependencies": {

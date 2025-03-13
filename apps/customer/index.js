@@ -2,7 +2,9 @@
  * @format
  */
 
-// 의존성 단순화
+// Gesture Handler를 가장 먼저 import 해야 합니다
+import 'react-native-gesture-handler';
+
 import { AppRegistry } from 'react-native';
 import App from './App';
 
